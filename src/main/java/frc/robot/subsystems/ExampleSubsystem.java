@@ -27,8 +27,8 @@ public class ExampleSubsystem extends SubsystemBase {
     motor.set(TalonFXControlMode.PercentOutput, 1);
   }
 
-  public void getEncoderValue() {
-    motor.getSelectedSensorPosition();
+  public double getEncoderValue() {
+   return motor.getSelectedSensorPosition();
   }
 
   @Override
