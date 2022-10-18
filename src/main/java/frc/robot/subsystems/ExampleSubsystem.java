@@ -4,11 +4,18 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.TalonFXControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonFX;
+
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class ExampleSubsystem extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
+
+  private final TalonFX motor;
+
   public ExampleSubsystem() {
+    motor = new TalonFX(0);
   }
 
   @Override
@@ -17,6 +24,11 @@ public class ExampleSubsystem extends SubsystemBase {
   }
 
   public void moveMotor() {
+    motor.set(TalonFXControlMode.PercentOutput, 1);
+  }
+
+  public void getEncoderValue() {
+    motor.getSelectedSensorPosition();
   }
 
   @Override
