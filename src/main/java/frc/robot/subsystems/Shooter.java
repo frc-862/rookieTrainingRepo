@@ -4,11 +4,23 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.TalonFXControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonFX;
+
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class ExampleSubsystem extends SubsystemBase {
-  /** Creates a new ExampleSubsystem. */
-  public ExampleSubsystem() {}
+public class Shooter extends SubsystemBase {
+
+  private final TalonFX shooter;
+
+  /** Creates a new Shooter. */
+  public Shooter() {
+    shooter = new TalonFX(11);
+  }
+
+  public void shoot(double power){
+    shooter.set(TalonFXControlMode.PercentOutput, power);
+  }
 
   @Override
   public void periodic() {
