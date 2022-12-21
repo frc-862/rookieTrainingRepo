@@ -9,25 +9,20 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.constants.RobotMap;
 
-public class Drivetrain extends SubsystemBase {
-  private VictorSP left;
-  private VictorSP right;
+public class Shooter extends SubsystemBase {
+  public VictorSP flywheel;
 
-  public Drivetrain() {
-    left = new VictorSP(RobotMap.LEFT);
-    right = new VictorSP(RobotMap.RIGHT);
-
-    left.setInverted(true);
+  public Shooter() {
+    flywheel = new VictorSP(RobotMap.FLYWHEEL);
 
     CommandScheduler.getInstance().registerSubsystem(this);
   }
 
-  public void setPower(double leftPower, double rightPower) {
-    left.set(leftPower);
-    right.set(rightPower);
+  public void setPower(double power) {
+    flywheel.set(power);
   }
 
   public void stop() {
-    setPower(0d, 0d);
+    setPower(0);
   }
 }
