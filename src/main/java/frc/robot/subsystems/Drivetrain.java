@@ -19,6 +19,8 @@ public class Drivetrain extends SubsystemBase {
 
     left.setInverted(true);
 
+    // Register this subsystem with the CommandScheduler
+
     CommandScheduler.getInstance().registerSubsystem(this);
   }
 
