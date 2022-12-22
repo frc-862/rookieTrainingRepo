@@ -31,9 +31,11 @@ public class DriveTrain extends SubsystemBase {
   }
 
   public void drive(double rightSpeed, double leftSpeed) {
+    //set right motors to correct speed
     rightMotorOne.set(TalonFXControlMode.PercentOutput, rightSpeed);
     rightMotorTwo.set(TalonFXControlMode.PercentOutput, rightSpeed);
     rightMotorThree.set(TalonFXControlMode.PercentOutput, rightSpeed);
+    //set left motors to correct speed
     leftMotorOne.set(TalonFXControlMode.PercentOutput, leftSpeed);
     leftMotorTwo.set(TalonFXControlMode.PercentOutput, leftSpeed);
     leftMotorThree.set(TalonFXControlMode.PercentOutput, leftSpeed);
