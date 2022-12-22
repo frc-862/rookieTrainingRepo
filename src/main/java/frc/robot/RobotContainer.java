@@ -23,12 +23,11 @@ public class RobotContainer {
   private final Shooter shooter = new Shooter();
 
   private final XboxController controller = new XboxController(0);
-
   public RobotContainer() {
     configureButtonBindings();
     drivetrain.setDefaultCommand(new TankDrive(drivetrain, () -> controller.getLeftY(), () -> controller.getRightY()));
   }
-
+  //TEST EDIT
   private void configureButtonBindings() {
     (new Button(() -> controller.getAButton())).whileHeld(new RunShooter(shooter, () -> 1d));
     (new Button(() -> controller.getBButton())).whileHeld(new RunCollector(collector, () -> 1d));
